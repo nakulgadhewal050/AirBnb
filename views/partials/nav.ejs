@@ -1,50 +1,73 @@
 <header class="bg-red-500 text-white p-4 shadow-md">
   <nav class="container mx-auto flex justify-between items-center">
+    <!-- Left Navigation -->
     <ul class="flex space-x-4">
       <li>
         <a
           href="/"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-          > AirBnb</a
+          class="<%= currentPage === 'airbnb' ? 'bg-red-400' : 'hover:bg-red-400' %> hover:bg-red-400 py-2 px-4 rounded transition duration-300"
         >
+          AirBnb
+        </a>
       </li>
-      <li>
-      <li>
-        <a
-          href="/homes"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-          > Home-Lists</a
-        >
-      </li>
-      <li>
-        <a
-          href="/bookings"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-          >Bookings</a
-        >
-      </li>
-      <li>
-        <a
-          href="/favourite"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-          >Favourite</a
-        >
-      </li>
-      
-      <li>
-        <a
-          href="/host/host-home"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-          >HostHome</a
-        >
-      </li>
-      <li>
-        <a
-          href="/host/add-home"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-          >Add Home</a
-        >
-      </li>
+
+      <% if (isLogedIn) { %>
+        <li>
+          <a href="/homes"
+             class="<%= currentPage === 'homes' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >
+            Home-Lists
+          </a>
+        </li>
+        <li>
+          <a href="/bookings"
+             class="<%= currentPage === 'bookings' ? 'bg-red-400' : 'hover:bg-red-400' %> hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          >
+            Bookings
+          </a>
+        </li>
+        <li>
+          <a href="/favourite"
+             class="<%= currentPage === 'favourite' ? 'bg-red-400' : 'hover:bg-red-400' %> hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          >
+            Favourite
+          </a>
+        </li>
+        <li>
+          <a href="/host/host-home"
+             class="<%= currentPage === 'hostHome' ? 'bg-red-400' : 'hover:bg-red-400' %> hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          >
+            HostHome
+          </a>
+        </li>
+        <li>
+          <a href="/host/add-home"
+             class="<%= currentPage === 'addhome' ? 'bg-red-400' : 'hover:bg-red-400' %> hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          >
+            Add Home
+          </a>
+        </li>
+      <% } %>
     </ul>
+
+    <!-- Right Auth Button -->
+    <div>
+      <% if (!isLogedIn) { %>
+        <a href="/login"
+           class="<%= currentPage === 'login' ? 'bg-red-400' : 'hover:bg-red-400' %> hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+        >
+          Login
+        </a>
+      <% } else { %>
+        <form action="/logout" method="POST">
+          <button
+            type="submit"
+            class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          >
+            Logout
+          </button>
+        </form>
+      <% } %>
+    </div>
   </nav>
 </header>

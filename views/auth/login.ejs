@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+    <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800"> Login </h1>
+      <form action="/login" method="POST" class="max-w-md mx-auto">
+        <input
+          required
+          type="text"
+          name="username"
+          placeholder="Enter Your User Name"
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
+        <input
+          required
+          type="password"
+          name="password"
+          placeholder="Enter Your Password"
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
+
+        <input 
+        type="submit" 
+        value="Login" 
+        class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300" />
+
+
+      </form>
+    </main>
+  </body>
+</html>
+
+
+
